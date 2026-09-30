@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Locio\WooCommerce\Sdk\Http;
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 /** What came back: the status, the headers with lower case names, and the body. */
 final class Response
 {

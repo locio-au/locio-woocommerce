@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Locio\WooCommerce;
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 use Automattic\WooCommerce\StoreApi\Exceptions\RouteException;
 use Closure;
 use Locio\WooCommerce\Sdk\Address;
@@ -54,7 +58,12 @@ final class Validation
         foreach (['address_1', 'address_2', 'city', 'state', 'postcode', 'country'] as $key) {
             $fields[$key] = $data["{$type}_$key"] ?? '';
         }
-        $picked = AddressLine::cleanId($data["locio_{$type}_address_id"] ?? ($_POST["locio_{$type}_address_id"] ?? null));
+        $field = "locio_{$type}_address_id";
+        // WooCommerce checked woocommerce-process-checkout-nonce before this
+        // hook runs, and cleanId accepts only the shape an id has.
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing
+        $posted = isset($_POST[$field]) ? sanitize_text_field(wp_unslash($_POST[$field])) : null;
+        $picked = AddressLine::cleanId($data[$field] ?? $posted);
 
         $this->last = $this->check($fields, $picked);
         if ($this->last['status'] === 'unmatched' && $this->settings->validate === 'block') {

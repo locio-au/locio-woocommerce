@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 // PSR-4 for the plugin and its bundled SDK, without Composer at runtime.
 
 spl_autoload_register(static function (string $class): void {

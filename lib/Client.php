@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Locio\WooCommerce\Sdk;
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 use DateTimeImmutable;
 use InvalidArgumentException;
 use Locio\WooCommerce\Sdk\Exception\BadRequest;

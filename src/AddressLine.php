@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Locio\WooCommerce;
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 /** Checkout fields to the one line the API resolves, and the id a browser posts back. */
 final class AddressLine
 {

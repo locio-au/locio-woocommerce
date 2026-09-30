@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Locio\WooCommerce\Sdk\Exception;
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 /**
  * Too many requests a second. Slow down and try again: nothing is spent.
  *

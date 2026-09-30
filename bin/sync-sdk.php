@@ -33,7 +33,9 @@ $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator("$source/s
 $copied = 0;
 foreach ($files as $file) {
     $relative = substr((string) $file, strlen("$source/src/"));
-    if (str_starts_with($relative, 'Laravel/') || !str_ends_with($relative, '.php')) {
+    // The Laravel layer is no use here, and the cURL transport is replaced by
+    // WpTransport: wordpress.org asks plugins to use the WordPress HTTP API.
+    if (str_starts_with($relative, 'Laravel/') || $relative === 'Http/CurlTransport.php' || !str_ends_with($relative, '.php')) {
         continue;
     }
     $code = (string) file_get_contents((string) $file);
@@ -41,6 +43,8 @@ foreach ($files as $file) {
     $code = preg_replace('/^namespace Locio(;|\\\\)/m', "namespace $prefix\$1", $code);
     $code = preg_replace('/^use Locio\\\\/m', "use $prefix\\\\", $code);
     $code = preg_replace('/(?<![\\\\\w])\\\\Locio\\\\/', "\\\\$prefix\\\\", $code);
+    // wordpress.org: a file opened by URL does nothing unless WordPress loaded it.
+    $code = preg_replace('/^(namespace [^;]+;\n)/m', "$1\nif (!defined('ABSPATH')) {\n    exit;\n}\n", $code, 1);
 
     $out = "$target/$relative";
     if (!is_dir(dirname($out))) {

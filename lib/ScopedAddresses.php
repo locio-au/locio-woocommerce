@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Locio\WooCommerce\Sdk;
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 /**
  * Addresses, and what the service said about the country it searched.
  *

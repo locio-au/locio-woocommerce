@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Locio\WooCommerce\Sdk\Exception;
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 /** No answer arrived: the connection failed, timed out, or was cut off. */
 final class TransportException extends LocioException
 {

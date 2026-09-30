@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace Locio\WooCommerce;
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 /** Wires the parts to WordPress once WooCommerce is loaded. */
 final class Plugin
 {
-    public const VERSION = '0.1.2';
+    public const VERSION = '0.1.3';
 
     public static function boot(string $pluginFile): void
     {

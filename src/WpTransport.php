@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Locio\WooCommerce;
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 use Locio\WooCommerce\Sdk\Exception\TransportException;
 use Locio\WooCommerce\Sdk\Http\Response;
 use Locio\WooCommerce\Sdk\Http\Transport;

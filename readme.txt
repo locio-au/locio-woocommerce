@@ -4,7 +4,7 @@ Tags: address autocomplete, address validation, australia, checkout, woocommerce
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 0.1.2
+Stable tag: 0.1.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,8 @@ This plugin sends addresses to Locio (https://locio.com.au) to suggest and check
 
 No name, email, phone number or order detail is sent. Locio's terms and privacy policy: https://locio.com.au/legal/
 
+The suggestions list shows the line "Addresses from G-NAF". It is the attribution G-NAF's CC BY 4.0 licence requires wherever its data is shown, and it is plain text, not a link.
+
 Address data is G-NAF, © Geoscape Australia, licensed under CC BY 4.0.
 
 == Installation ==
@@ -54,7 +56,9 @@ Address data is G-NAF, © Geoscape Australia, licensed under CC BY 4.0.
 
 = What does it cost? =
 
-Each suggestion request and each order check uses one unit of your Locio plan. A free plan covers a small shop; see https://locio.com.au/pricing/.
+Each suggestion request and each order check uses one unit of your Locio plan. The free plan includes 10,000 units a month, which covers a small shop; see https://locio.com.au/pricing/.
+
+Nothing in the plugin is locked or limited: every feature works on every plan, including the free one. The only limit is the service's monthly allowance, and when it runs out the checkout carries on as a normal WooCommerce checkout.
 
 = What if Locio is down or my quota runs out? =
 
@@ -75,6 +79,11 @@ The suggestions panel reads five CSS variables. Override them in your theme:
 The public key is printed into your checkout page so browsers can ask for suggestions. It only works from the origins you allow, so a copy is useless elsewhere. The secret key can do everything your plan allows, so it never leaves your server. The plugin refuses a secret key pasted into the public field.
 
 == Changelog ==
+
+= 0.1.3 =
+* Every PHP file refuses to run unless WordPress loaded it.
+* Requests go only through the WordPress HTTP API; the bundled client's cURL transport is no longer shipped.
+* The picked address id is unslashed and sanitized where it is read.
 
 = 0.1.2 =
 * The plugin's page is now its setup guide, separate from the author's.

@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Locio\WooCommerce;
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 use Locio\WooCommerce\Sdk\Client;
 
 /** Loads the suggestions script on the checkout, with the public key and nothing else. */

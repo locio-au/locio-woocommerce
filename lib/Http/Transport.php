@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Locio\WooCommerce\Sdk\Http;
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 /**
  * How a request reaches the network.
  *
