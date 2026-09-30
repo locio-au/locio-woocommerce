@@ -1,0 +1,22 @@
+{
+    "name": "locio/locio-woocommerce",
+    "description": "Australian address autocomplete and validation at WooCommerce checkout, from G-NAF.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://locio.com.au",
+    "require": {
+        "php": ">=8.2"
+    },
+    "require-dev": {
+        "brain/monkey": "^2.6",
+        "phpunit/phpunit": "^10.5 || ^11.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Locio\\WooCommerce\\Tests\\": "tests/php/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

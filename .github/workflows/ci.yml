@@ -1,0 +1,43 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+
+jobs:
+  php:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ["8.2", "8.3", "8.4", "8.5"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+      - run: composer install --no-interaction --no-progress
+      - run: vendor/bin/phpunit
+
+  js:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm ci
+      - run: npm test
+
+  zip:
+    runs-on: ubuntu-latest
+    needs: [php, js]
+    steps:
+      - uses: actions/checkout@v4
+      - run: bin/build-zip.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: locio-address-autocomplete
+          path: build/locio-address-autocomplete.zip

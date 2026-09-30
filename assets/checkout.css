@@ -1,0 +1,93 @@
+/* Locio address suggestions at checkout. Monochrome, inherits the theme's font. */
+
+.locio-anchor {
+  position: relative;
+}
+
+.locio-panel {
+  --locio-bg: #ffffff;
+  --locio-fg: #111111;
+  --locio-muted: #6b6b6b;
+  --locio-line: #d4d4d4;
+  --locio-active: #eeeeee;
+
+  position: absolute;
+  z-index: 1000;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 2px;
+  box-sizing: border-box;
+  background: var(--locio-bg);
+  color: var(--locio-fg);
+  border: 1px solid var(--locio-line);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font: inherit;
+  text-align: left;
+}
+
+.locio-panel[hidden] {
+  display: none;
+}
+
+/* WooCommerce themes style every ul inside the checkout form; reset ours. */
+.locio-panel .locio-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: min(18rem, 50vh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.locio-panel .locio-option {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--locio-line);
+}
+
+.locio-panel .locio-option:last-child {
+  border-bottom: 0;
+}
+
+.locio-panel .locio-option:hover,
+.locio-panel .locio-option.locio-active {
+  background: var(--locio-active);
+}
+
+.locio-panel .locio-option.locio-active {
+  outline: 2px solid var(--locio-fg);
+  outline-offset: -2px;
+}
+
+.locio-panel .locio-status:empty {
+  display: none;
+}
+
+.locio-panel .locio-status {
+  margin: 0;
+  padding: 0.75rem;
+  color: var(--locio-fg);
+}
+
+.locio-panel .locio-credit {
+  margin: 0;
+  padding: 0.375rem 0.75rem;
+  border-top: 1px solid var(--locio-line);
+  color: var(--locio-muted);
+  font-size: 0.75em;
+}
+
+@media (max-width: 480px) {
+  .locio-panel .locio-list {
+    max-height: 40vh;
+  }
+}

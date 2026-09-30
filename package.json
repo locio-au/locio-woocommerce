@@ -1,0 +1,12 @@
+{
+  "name": "locio-woocommerce-assets",
+  "private": true,
+  "description": "Browser side of the Locio WooCommerce plugin: address suggestions at checkout.",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "jsdom": "^30.1.1",
+    "vitest": "^5.0.1"
+  }
+}
