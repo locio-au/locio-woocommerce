@@ -24,6 +24,10 @@ When the order is placed, the address is checked against G-NAF, the national reg
 
 Suggestions appear for Australian addresses only. Other countries check out exactly as before.
 
+= Open source =
+
+The plugin is open source under the GPL, version 2 or later. The source, issues and changes live at https://github.com/locio-au/locio-woocommerce, and contributions are welcome there. The zip is the source as it is in the repository: nothing is minified, obfuscated or built from code you cannot read.
+
 == External services ==
 
 This plugin sends addresses to Locio (https://locio.com.au) to suggest and check them. Nothing is sent until you enter a key.

@@ -9,3 +9,4 @@
 /package-lock.json export-ignore
 /phpunit.xml.dist export-ignore
 /vitest.config.js export-ignore
+/README.md export-ignore
