@@ -7,7 +7,7 @@ namespace Locio\WooCommerce;
 /** Wires the parts to WordPress once WooCommerce is loaded. */
 final class Plugin
 {
-    public const VERSION = '0.1.0';
+    public const VERSION = '0.1.1';
 
     public static function boot(string $pluginFile): void
     {
