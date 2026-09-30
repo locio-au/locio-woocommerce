@@ -2,7 +2,7 @@
 Contributors: locio
 Tags: address autocomplete, address validation, australia, checkout, woocommerce
 Requires at least: 6.4
-Tested up to: 6.9
+Tested up to: 7.1
 Requires PHP: 8.2
 Stable tag: 0.1.0
 License: GPLv2 or later
