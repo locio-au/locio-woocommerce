@@ -30,4 +30,18 @@ final class VersionTest extends TestCase
         $readme = (string) file_get_contents(dirname(__DIR__, 2) . '/readme.txt');
         self::assertStringContainsString('= ' . Plugin::VERSION . ' =', $readme);
     }
+
+    /**
+     * wordpress.org refuses a plugin whose Plugin URI and Author URI are the
+     * same: one is a page about the plugin, the other about who made it.
+     */
+    public function testThePluginAndAuthorUrisDiffer(): void
+    {
+        $file = (string) file_get_contents(dirname(__DIR__, 2) . '/locio-address-autocomplete.php');
+        preg_match('/^\s*\*\s*Plugin URI:\s*(\S+)/m', $file, $plugin);
+        preg_match('/^\s*\*\s*Author URI:\s*(\S+)/m', $file, $author);
+
+        self::assertNotEmpty($plugin[1] ?? '');
+        self::assertNotSame(rtrim($plugin[1], '/'), rtrim($author[1] ?? '', '/'));
+    }
 }

@@ -4,7 +4,7 @@ Tags: address autocomplete, address validation, australia, checkout, woocommerce
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 0.1.1
+Stable tag: 0.1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -75,6 +75,9 @@ The suggestions panel reads five CSS variables. Override them in your theme:
 The public key is printed into your checkout page so browsers can ask for suggestions. It only works from the origins you allow, so a copy is useless elsewhere. The secret key can do everything your plan allows, so it never leaves your server. The plugin refuses a secret key pasted into the public field.
 
 == Changelog ==
+
+= 0.1.2 =
+* The plugin's page is now its setup guide, separate from the author's.
 
 = 0.1.1 =
 * The listing says the plugin is open source, and where the source lives.

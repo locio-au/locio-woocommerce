@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name:          Locio Address Autocomplete for WooCommerce
- * Plugin URI:           https://locio.com.au
+ * Plugin URI:           https://locio.com.au/guides/address-autocomplete-woocommerce/
  * Description:          Australian address suggestions at checkout and a check against G-NAF when the order is placed, so parcels go to addresses that exist.
- * Version:              0.1.1
+ * Version:              0.1.2
  * Requires at least:    6.4
  * Requires PHP:         8.2
  * Requires Plugins:     woocommerce
